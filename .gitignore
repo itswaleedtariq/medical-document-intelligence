@@ -1,0 +1,58 @@
+﻿# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Environment and secrets
+.env
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Medical and private data
+data/raw/*
+data/private/*
+uploads/*
+!data/raw/.gitkeep
+
+# Generated datasets
+data/processed/*
+data/train/*
+data/validation/*
+data/test/*
+!data/processed/.gitkeep
+!data/train/.gitkeep
+!data/validation/.gitkeep
+!data/test/.gitkeep
+
+# Model files
+models/*
+checkpoints/
+outputs/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+!models/.gitkeep
+
+# Vector database
+chroma_db/
+
+# Logs
+*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
