@@ -17,3 +17,4 @@ pillow
 pytest
 ruff
 httpx
+datasets
