@@ -16,3 +16,4 @@ safetensors
 pillow
 pytest
 ruff
+httpx
