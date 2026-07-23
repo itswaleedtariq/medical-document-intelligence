@@ -42,9 +42,7 @@ def extract_pdf_bytes(
 
     try:
         if document.needs_pass or document.is_encrypted:
-            raise EncryptedPDFError(
-                "Password-protected PDFs are not supported."
-            )
+            raise EncryptedPDFError("Password-protected PDFs are not supported.")
 
         if document.page_count == 0:
             raise EmptyPDFError("The PDF does not contain any pages.")
@@ -75,10 +73,7 @@ def extract_pdf_bytes(
             character_count = len(text)
 
             # This is a heuristic, not a definite scanned-page diagnosis.
-            needs_ocr = (
-                has_images
-                and character_count < min_page_text_chars
-            )
+            needs_ocr = has_images and character_count < min_page_text_chars
 
             extracted_pages.append(
                 ExtractedPage(
@@ -90,20 +85,11 @@ def extract_pdf_bytes(
                 )
             )
 
-        text_page_count = sum(
-            page.character_count > 0
-            for page in extracted_pages
-        )
+        text_page_count = sum(page.character_count > 0 for page in extracted_pages)
 
-        ocr_candidate_page_count = sum(
-            page.needs_ocr
-            for page in extracted_pages
-        )
+        ocr_candidate_page_count = sum(page.needs_ocr for page in extracted_pages)
 
-        total_characters = sum(
-            page.character_count
-            for page in extracted_pages
-        )
+        total_characters = sum(page.character_count for page in extracted_pages)
 
         return PDFExtractionResponse(
             document_id=uuid4(),

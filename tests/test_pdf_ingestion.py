@@ -152,6 +152,4 @@ def test_page_limit_is_enforced() -> None:
     except PDFPageLimitError:
         return
 
-    raise AssertionError(
-        "PDFPageLimitError was not raised."
-    )
+    raise AssertionError("PDFPageLimitError was not raised.")

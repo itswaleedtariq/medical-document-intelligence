@@ -1,6 +1,8 @@
-﻿from fastapi import FastAPI
+from fastapi import FastAPI
 
-from backend.app.api.documents import router as documents_router
+from backend.app.api.documents import (
+    router as documents_router,
+)
 from backend.app.core.config import get_settings
 
 settings = get_settings()
@@ -8,10 +10,12 @@ settings = get_settings()
 app = FastAPI(
     title="Medical Document Intelligence API",
     description=(
-        "Educational medical document extraction and explanation API. "
-        "This application does not provide medical diagnoses or treatment."
+        "Educational medical document extraction, "
+        "indexing and retrieval API. "
+        "This application does not provide medical "
+        "diagnoses or treatment."
     ),
-    version="0.2.0",
+    version="0.3.0",
     debug=settings.debug,
 )
 
@@ -30,5 +34,5 @@ def root() -> dict[str, str]:
 def health_check() -> dict[str, str]:
     return {
         "status": "healthy",
-        "version": "0.2.0",
+        "version": "0.3.0",
     }

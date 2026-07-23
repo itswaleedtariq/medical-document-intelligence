@@ -50,9 +50,7 @@ async def read_and_validate_pdf_upload(
     content_type = (upload.content_type or "").lower()
 
     if content_type and content_type not in ALLOWED_PDF_CONTENT_TYPES:
-        raise UnsupportedFileTypeError(
-            f"Unsupported content type: {content_type}"
-        )
+        raise UnsupportedFileTypeError(f"Unsupported content type: {content_type}")
 
     max_size_bytes = max_size_mb * 1024 * 1024
     total_size = 0
@@ -69,9 +67,7 @@ async def read_and_validate_pdf_upload(
         total_size += len(chunk)
 
         if total_size > max_size_bytes:
-            raise PDFTooLargeError(
-                f"PDF exceeds the {max_size_mb} MB upload limit."
-            )
+            raise PDFTooLargeError(f"PDF exceeds the {max_size_mb} MB upload limit.")
 
         chunks.append(chunk)
 
